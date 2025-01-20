@@ -1,0 +1,72 @@
+\documentclass[12pt, letterpaper]{article}
+
+% Packages
+\usepackage[margin=1in]{geometry} % For setting page margins
+\usepackage{amsmath, amssymb} % For math symbols and equations
+\usepackage{graphicx} % For including images
+\usepackage{hyperref} % For hyperlinks
+
+\begin{document}
+
+\title{%
+    \textbf{Homework Report for Real-Time Embedded Systems} \\
+    \vspace{1em} % Space after main title
+    \begin{tabular}{@{}l@{}}
+        \textbf{Class:} Real-Time Embedded Systems \\
+        \textbf{Professor:} Prof. Steve Rizor \\
+        \textbf{TAs:} Mohit Chaudhari, Krishna Suhagiya, Samiksha Patil \\
+        \textbf{Student:} Steve Gillet \\
+        \textbf{Date:} \today \\
+        \textbf{Assignment:} Homework 1
+    \end{tabular}
+}
+
+\author{}
+\date{}
+
+\maketitle
+
+\section{Check out or purchase a Raspberry Pi 4 kit, and install the latest Raspberry Pi 64-bit OS on your
+Raspberry Pi 4 (there are plenty of guides online). Answer this question by pasting the result of the
+command "cat /proc/cpuinfo|grep Ser; uname -a"}
+
+I am using the Jetson Nano Developer Kit for now, though I do have a Raspberry Pi 4 for backup.
+The Jetson Nano does not have the serial number in the cpuinfo so I improvised the command a little bit.
+
+steve@steve-desktop:~\$ cat /proc/device-tree/serial-number; echo ; uname -a;
+1425222005022
+Linux steve-desktop 4.9.253-tegra #1 SMP PREEMPT Sat Feb 19 08:59:22 PST 2022 aarch64 aarch64 aarch64 GNU/Linux
+
+\section{Create a github account if you don't already have one. Make a private repository for the course. If you
+haven't used git before, check out some guides. Install git and gh on your rpi (hint: sudo apt install git
+gh), generate a personal access token on github, authenticate your rpi, and clone your repo. This will
+probably require some internet searching to figure out, and you can also ask questions on slack or use
+an LLM to help you figure out the steps. Answer this question by pasting the result of the command
+"git remote -v" from inside your local clone of your repository.}
+
+steve@steve-desktop:~/Desktop/realTimeEmbedded\$ git remote -v
+origin  git@github.com:steveGillet/realTimeEmbedded.git (fetch)
+origin  git@github.com:steveGillet/realTimeEmbedded.git (push)
+
+\section{Choose a partner for your exercises and post your team on Slack. Answer this question by giving your
+team members as well.}
+
+TODO
+
+\section{Provide examples of real-time embedded systems you are familiar with and describe how these
+systems meet the common definition of real-time and embedded.}
+
+car
+
+\section{Find the Liu and Layland paper and read through Section 3. Why do they make the assumption that all
+requests for services are periodic? Why might this be a problem with a real application?}
+
+TODO
+
+\section{Define hard and soft real-time services and describe why and how they are different.}
+
+The definition seems to be pretty soft and depends on the importance of the deadlines being met.
+A hard real-time system costs lives or property if the deadlines aren't met and perhaps will be designed so that some safe thing will always be returned before the deadline no matter what.
+Soft real-time systems seem to more cost annoyance, if the deadline is missed then some packet doesn't get sent or performance is suboptimal.
+
+\end{document}
