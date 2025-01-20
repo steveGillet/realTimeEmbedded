@@ -6,11 +6,11 @@
 \usepackage{graphicx} % For including images
 \usepackage{hyperref} % For hyperlinks
 
+\renewcommand{\thesection}{\arabic{section}.}
+
 \begin{document}
 
-\title{%
-    \textbf{Homework Report for Real-Time Embedded Systems} \\
-    \vspace{1em} % Space after main title
+\title{
     \begin{tabular}{@{}l@{}}
         \textbf{Class:} Real-Time Embedded Systems \\
         \textbf{Professor:} Prof. Steve Rizor \\
@@ -34,7 +34,9 @@ I am using the Jetson Nano Developer Kit for now, though I do have a Raspberry P
 The Jetson Nano does not have the serial number in the cpuinfo so I improvised the command a little bit.
 
 steve@steve-desktop:~\$ cat /proc/device-tree/serial-number; echo ; uname -a;
+
 1425222005022
+
 Linux steve-desktop 4.9.253-tegra \#1 SMP PREEMPT Sat Feb 19 08:59:22 PST 2022 aarch64 aarch64 aarch64 GNU/Linux
 
 \section{Create a github account if you don't already have one. Make a private repository for the course. If you
@@ -45,7 +47,9 @@ an LLM to help you figure out the steps. Answer this question by pasting the res
 "git remote -v" from inside your local clone of your repository.}
 
 steve@steve-desktop:~/Desktop/realTimeEmbedded\$ git remote -v
+
 origin  git@github.com:steveGillet/realTimeEmbedded.git (fetch)
+
 origin  git@github.com:steveGillet/realTimeEmbedded.git (push)
 
 \section{Choose a partner for your exercises and post your team on Slack. Answer this question by giving your
@@ -56,17 +60,22 @@ TODO
 \section{Provide examples of real-time embedded systems you are familiar with and describe how these
 systems meet the common definition of real-time and embedded.}
 
-car
+I'd say the one I am most familiar with is my truck that uses a computer to control several subsystems.
+The real-time elements that come to mind are the ABS brake system and the traction control system since they are using functions that have to perform in real time with lives/property at stake.
+There is some computer that is deciding how/when to move the wheels/brakes and it has to be done as the braking or slipping is happening.
+I would say that these meet the deinition of embedded because they aren't actively controlled or modified by the user but operate based on input from some sensor in the brake pedal or axle.
 
 \section{Find the Liu and Layland paper and read through Section 3. Why do they make the assumption that all
 requests for services are periodic? Why might this be a problem with a real application?}
 
-TODO
+They make the assumption that all requests are periodic so that the tasks can be expressed formulaically and characterized by request period and run-time.
+This could be a problem because nothing is truly periodic in a real application and the assumption may lead to some miscalculations.
 
 \section{Define hard and soft real-time services and describe why and how they are different.}
 
-The definition seems to be pretty soft and depends on the importance of the deadlines being met.
+The definition seems to be pretty fuzzy and depends on the importance of the deadlines being met.
 A hard real-time system costs lives or property if the deadlines aren't met and perhaps will be designed so that some safe thing will always be returned before the deadline no matter what.
 Soft real-time systems seem to more cost annoyance, if the deadline is missed then some packet doesn't get sent or performance is suboptimal.
+In the Liu paper it says that service must be guaranteed by the deadline in hard-real-time systems whereas a statistical distribution is acceptable in soft.
 
 \end{document}
